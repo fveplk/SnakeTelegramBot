@@ -1,3 +1,4 @@
+/* Основные стили для body */
 body {
     display: flex;
     flex-direction: column;
@@ -11,6 +12,7 @@ body {
     overflow: hidden;
 }
 
+/* Стили для игрового поля */
 canvas {
     border: 1px solid #fff;
     max-width: 100%;
@@ -18,11 +20,18 @@ canvas {
     image-rendering: crisp-edges;
 }
 
+/* Стили для блока с информацией о счете */
 .game-info {
     margin-top: 10px;
     text-align: center;
+    font-size: 18px;
 }
 
+.game-info p {
+    margin: 5px 0;
+}
+
+/* Стили для блока с кнопками управления */
 .controls {
     display: grid;
     grid-template-areas:
@@ -36,13 +45,68 @@ canvas {
 .controls button {
     padding: 20px;
     font-size: 24px;
-    background-color: #333;
+    background-color: #444;
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    transition: background-color 0.2s ease;
+}
+
+.controls button:hover {
+    background-color: #555;
 }
 
 .controls button:active {
-    background-color: #555;
+    background-color: #666;
+}
+
+/* Стили для иконок Font Awesome */
+.controls button i {
+    font-size: 24px;
+}
+
+/* Стили для кнопок в зависимости от их расположения */
+#up {
+    grid-area: up;
+}
+
+#left {
+    grid-area: left;
+}
+
+#down {
+    grid-area: down;
+}
+
+#right {
+    grid-area: right;
+}
+
+/* Дополнительные стили для улучшения внешнего вида */
+.controls button:focus {
+    outline: none;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 600px) {
+    canvas {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    .controls button {
+        width: 50px;
+        height: 50px;
+        padding: 15px;
+    }
+
+    .controls button i {
+        font-size: 20px;
+    }
 }
